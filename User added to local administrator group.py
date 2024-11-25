@@ -1,7 +1,6 @@
 import subprocess
 import random
 
-# Execute this script while using Administrators permissions.
 # Extended lists of first and last names for generating realistic usernames
 FIRST_NAMES = [
     "John", "Jane", "Alex", "Emily", "Chris", "Sara", "Michael", "Laura",
@@ -27,41 +26,26 @@ def create_user(username, password="P@ssw0rd123"):
         # PowerShell command to create a new local user
         create_user_command = f'New-LocalUser -Name "{username}" -Password (ConvertTo-SecureString "{password}" -AsPlainText -Force) -FullName "{username}" -AccountNeverExpires -PasswordNeverExpires'
         
-        # Run the PowerShell command
-        result = subprocess.run(
-            ["powershell", "-Command", create_user_command],
-            capture_output=True,
+        # Run the PowerShell command and keep the window open
+        subprocess.run(
+            ["powershell", "-NoExit", "-Command", create_user_command],
             text=True
         )
-        
-        if result.returncode == 0:
-            print(f"User '{username}' created successfully with default password.")
-            return True
-        else:
-            print(f"Failed to create user '{username}'.")
-            print(f"Error: {result.stderr}")
-            return False
+        print(f"User '{username}' created successfully with default password.")
     except Exception as e:
         print(f"An error occurred while creating the user: {e}")
-        return False
 
 def add_user_to_admin_group(username):
     try:
         # PowerShell command to add the user to the Administrators group
         add_to_admin_command = f'Add-LocalGroupMember -Group "Administrators" -Member "{username}"'
         
-        # Run the PowerShell command
-        result = subprocess.run(
-            ["powershell", "-Command", add_to_admin_command],
-            capture_output=True,
+        # Run the PowerShell command and keep the window open
+        subprocess.run(
+            ["powershell", "-NoExit", "-Command", add_to_admin_command],
             text=True
         )
-        
-        if result.returncode == 0:
-            print(f"User '{username}' was successfully added to the Administrators group.")
-        else:
-            print(f"Failed to add user '{username}' to the Administrators group.")
-            print(f"Error: {result.stderr}")
+        print(f"User '{username}' was successfully added to the Administrators group.")
     except Exception as e:
         print(f"An error occurred while adding the user to the Administrators group: {e}")
 
@@ -71,5 +55,5 @@ if __name__ == "__main__":
     print(f"Generated random username: {username}")
     
     # Create the user and add them to the Administrators group
-    if create_user(username):
-        add_user_to_admin_group(username)
+    create_user(username)
+    add_user_to_admin_group(username)
