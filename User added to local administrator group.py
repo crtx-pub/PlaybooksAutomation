@@ -28,7 +28,7 @@ def create_user(username, password="P@ssw0rd123"):
         
         # Run the PowerShell command and keep the window open
         subprocess.run(
-            ["powershell", "-NoExit", "-Command", create_user_command],
+            ["powershell", "-Command", create_user_command],
             text=True
         )
         print(f"User '{username}' created successfully with default password.")
