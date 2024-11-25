@@ -41,7 +41,7 @@ def create_userAddAdministroars(username, password="P@ssw0rd123"):
         
         # Run the PowerShell command and keep the window open
         subprocess.run(
-            ["powershell", "-NoExit", "-Command", add_to_admin_command],
+            ["powershell", "-Command", add_to_admin_command],
             text=True
         )
         print(f"User '{username}' was successfully added to the Administrators group.")
