@@ -45,6 +45,11 @@ def create_userAddAdministroars(username, password="P@ssw0rd123"):
             text=True
         )
         print(f"User '{username}' was successfully added to the Administrators group.")
+        localAdminCMD= "net localgroup 'Administrators'"
+        subprocess.run(
+            ["cmd.exe", localAdminCMD],
+            text=True
+        )
     except Exception as e:
         print(f"An error occurred while adding the user to the Administrators group: {e}")
 
