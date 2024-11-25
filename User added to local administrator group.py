@@ -21,7 +21,7 @@ def generate_random_username():
     last_name = random.choice(LAST_NAMES)
     return f"{first_name}.{last_name}".lower()
 
-def create_user(username, password="P@ssw0rd123"):
+def create_userAddAdministroars(username, password="P@ssw0rd123"):
     try:
         # PowerShell command to create a new local user
         create_user_command = f'New-LocalUser -Name "{username}" -Password (ConvertTo-SecureString "{password}" -AsPlainText -Force) -FullName "{username}" -AccountNeverExpires -PasswordNeverExpires'
@@ -35,7 +35,6 @@ def create_user(username, password="P@ssw0rd123"):
     except Exception as e:
         print(f"An error occurred while creating the user: {e}")
 
-def add_user_to_admin_group(username):
     try:
         # PowerShell command to add the user to the Administrators group
         add_to_admin_command = f'Add-LocalGroupMember -Group "Administrators" -Member "{username}"'
@@ -55,5 +54,4 @@ if __name__ == "__main__":
     print(f"Generated random username: {username}")
     
     # Create the user and add them to the Administrators group
-    create_user(username)
-    add_user_to_admin_group(username)
+    create_userAddAdministroars(username)
