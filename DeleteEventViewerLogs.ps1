@@ -1,5 +1,8 @@
-# This script is for educational purposes only and must be executed in a secure, isolated lab environment.
-# Do not execute it in production or on-premises environments under any circumstances.
+# Check if running as Administrator
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Output "This script must be run as an Administrator. Please restart PowerShell with elevated permissions."
+    exit
+}
 
 # Define a function to clear security logs using wevtutil
 function Invoke-ClearSecurityLogs {
