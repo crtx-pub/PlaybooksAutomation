@@ -20,10 +20,10 @@ $deleteLogsContent = @'
 # It clears security logs from the Windows Event Viewer to simulate log management scenarios in a controlled environment.
 
 try {
-    # Attempt to clear the Security event logs. This action requires administrative privileges.
-    Clear-EventLog -LogName Security
+    # Attempt to clear the Security event logs using wevtutil. This action requires administrative privileges.
+    wevtutil cl Security
     # If successful, print a confirmation message.
-    Write-Output "Security logs have been cleared."
+    Write-Output "Security logs have been cleared using wevtutil."
 } catch {
     # If an error occurs (e.g., insufficient permissions), display an error message.
     Write-Output "Failed to clear security logs. Ensure you have the required permissions."
