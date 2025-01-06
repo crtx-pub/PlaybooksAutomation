@@ -1,0 +1,19 @@
+Alert Simulation Process:
+1- create a new local account (that is not administrator).
+
+2- Create a new folder on the desktop named 'Windows'.
+
+3- Within the new 'Windows' folder create a new folder named 'System32'.
+
+4- Within the new 'System32' folder create a new folder named 'config'.
+
+5- Within the new 'config' folder create a new text file named SAM or SECURITY or SOFTWARE or SYSTEM.
+
+6- delete the '.txt' from the file name.
+
+7- Download and install Python 2.
+
+8- Using the CMD navigate to the Python 2 directory (cd C:\Python27)
+
+9- type the following command in the CMD - python.exe -c "with open('C:\\Users\\yourlocaluser\\Desktop\\Windows\\System32\\config\\Filename','r') as file: print(file.read())"
+OR use the following Powershell command:  Get-Content -Path "C:\Users\{yourlocaluser}\Desktop\Windows\System32\config\{Filename}"
