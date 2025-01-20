@@ -50,15 +50,6 @@ This guide outlines the process to simulate alerts by creating specific file str
    ```
    Replace `yourlocaluser` with the username of the local account created earlier and `Filename` with the file name (e.g., `SAM`, `SECURITY`).
 
-#### Using PowerShell
-
-1. Open PowerShell.
-2. Run the following command:
-   ```
-   Get-Content -Path "C:\Users\{yourlocaluser}\Desktop\Windows\System32\config\{Filename}"
-   ```
-   Replace `{yourlocaluser}` with the username of the local account created earlier and `{Filename}` with the file name (e.g., `SAM`, `SECURITY`).
-
 ## Notes
 
 - Ensure Python 2 is installed correctly, and the system's PATH variable includes the Python 2 directory if needed.
