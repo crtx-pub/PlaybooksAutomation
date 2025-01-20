@@ -11,6 +11,4 @@ $url = "https://raw.githubusercontent.com/crtx-pub/PlaybooksAutomation/refs/head
 Invoke-Expression((New-Object net.webclient).DownloadString($url))
 
 # Invoke a function or command from the downloaded script
-# The command `Invoke-ClearSecurityLogs` is defined in the external script. 
-
 Main-Execute
